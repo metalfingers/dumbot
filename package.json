@@ -1,0 +1,11 @@
+{
+  "name": "bottester",
+  "version": "1.0.0",
+  "description": "a bot tester",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}
