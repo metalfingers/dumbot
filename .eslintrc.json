@@ -1,0 +1,17 @@
+{
+    "extends": "airbnb",
+    "installedESLint": true,
+    "plugins": [
+        "standard",
+        "promise"
+    ],
+    "rules": {
+      "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+      "max-len": 1,
+      "no-console": 0,
+      "no-param-reassign": ["error", { "props": false }],
+      "no-plusplus": 0,
+      "no-use-before-define": 0,
+      "one-var": 0
+    }
+}
