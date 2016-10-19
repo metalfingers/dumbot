@@ -1,14 +1,13 @@
 const intents = {
-	greeting: [
-		'hi',
-		'hello',
-		'hey there'
-	],
-	goodbye: [
-		'bye',
-		'later',
-		'adios'
-	]
+  greeting: [
+    'hi',
+    'hello',
+    'hey there',
+  ],
+  goodbye: [
+    'bye',
+    'later',
+    'adios',
+  ],
 };
-
 module.exports = intents;
