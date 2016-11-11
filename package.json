@@ -1,5 +1,5 @@
 {
-  "name": "bottester",
+  "name": "dumbot",
   "version": "1.0.0",
   "description": "a bot tester",
   "main": "index.js",
