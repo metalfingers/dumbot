@@ -1,10 +1,23 @@
 const conversations = {
+  welcomeMessage: {
+    components: [],
+  },
+  whichReminder: {
+    components: [{
+      name: 'userHasExistingAppointment',
+      prompt: 'I can remind you of existing appointments with your doctor or help recommend when your next appointment should be. \n\nDo you already have an appointment?',
+      reprompt: 'userHasExistingAppointment: reprompt message',
+      validation: message => (message === 'userHasExistingAppointment_yes' || message === 'userHasExistingAppointment_no'),
+      action: message => `nice name, ${message}!`,
+    }],
+  },
   greeting: {
     components: [{
       name: 'name',
       prompt: 'what is your name?',
       reprompt: 'most people have names that are longer than one letter. what is yours?',
       validation: message => message.trim().length > 1,
+      action: message => `nice name, ${message}!`,
     }, {
       name: 'location',
       prompt: 'where are you?',

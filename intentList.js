@@ -1,4 +1,5 @@
 const intents = {
+  welcomeMessage: ['get_started'],
   greeting: [
     'hi',
     'hello',
