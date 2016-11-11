@@ -1,17 +1,26 @@
 {
-    "extends": "airbnb",
-    "installedESLint": true,
-    "plugins": [
-        "standard",
-        "promise"
-    ],
-    "rules": {
-      "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
-      "max-len": 1,
-      "no-console": 0,
-      "no-param-reassign": ["error", { "props": false }],
-      "no-plusplus": 0,
-      "no-use-before-define": 0,
-      "one-var": 0
-    }
+  "extends": "airbnb",
+  "installedESLint": true,
+  "plugins": [
+    "standard",
+    "promise"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "chai": true
+  },
+  "rules": {
+    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+    "max-len": 1,
+    "no-console": 0,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
+    "no-param-reassign": ["error", { "props": false }],
+    "no-plusplus": 0,
+    "no-use-before-define": 0,
+    "one-var": 0
+  }
 }
