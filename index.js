@@ -8,7 +8,7 @@ const path = require('path'),
       .replace(/ (.)/g, $1 => $1.toUpperCase())
       .replace(/ /g, '');
   },
-  bot = function bot(intents, intentHandlers, conversationsPath) {
+  bot = function bot({ intents, intentHandlers, conversationsPath }) {
     const normalizedPath = path.normalize(conversationsPath),
       conversations = {};
 
