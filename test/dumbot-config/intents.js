@@ -1,14 +1,17 @@
 const intents = {
-  welcomeMessage: ['get_started'],
   greeting: [
     'hi',
     'hello',
     'hey there',
   ],
-  goodbye: [
-    'bye',
-    'later',
-    'adios',
+  getStarted: [
+    'get_started',
+  ],
+  getStartedOptions: [
+    '2_dose',
+    '3_dose',
+    'dont_know',
   ],
 };
+
 module.exports = intents;
