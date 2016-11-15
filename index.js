@@ -8,9 +8,18 @@ const path = require('path'),
       .replace(/ (.)/g, $1 => $1.toUpperCase())
       .replace(/ /g, '');
   },
-  bot = function bot({ intents, intentHandlers, conversationsPath }) {
+  bot = function bot({ intents, intentHandlers = {}, conversationsPath }) {
+    if (Object.keys(intentHandlers).length === 0) {
+      console.warn('No intent handlers passed to dumbot.');
+    }
+
     const normalizedPath = path.normalize(conversationsPath),
       conversations = {};
+
+    // if there are no conversation files, throw an error.
+    if (fs.readdirSync(normalizedPath).length === 0) {
+      throw Error('conversationsPath does not contain any conversation files.');
+    }
 
     // collect all files in the conversations folder and add whatever they
     // export to the conversations object
