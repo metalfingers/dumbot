@@ -25,6 +25,14 @@ describe('new Dumbot', () => {
     expect(() => new Dumbot(emptyArgs))
       .to.throw(Error, /conversationsPath does not contain any conversation files/);
   });
+
+  it('should error out if a non-absolute path is passed in', () => {
+    const badPath = './test/dumbot-config/conversations/',
+      badArgs = { intents: {}, intentHandlers: { a: undefined }, conversationsPath: badPath };
+
+    expect(() => new Dumbot(badArgs))
+      .to.throw(Error, /conversationsPath is not an absolute path/);
+  });
 });
 
 describe('dumbot#handleMessage', () => {

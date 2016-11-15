@@ -9,21 +9,26 @@ const path = require('path'),
       .replace(/ /g, '');
   },
   bot = function bot({ intents, intentHandlers = {}, conversationsPath }) {
+    const conversations = {};
+
     if (Object.keys(intentHandlers).length === 0) {
       console.warn('No intent handlers passed to dumbot.');
     }
 
-    const normalizedPath = path.normalize(conversationsPath),
-      conversations = {};
+    // check that conversationsPath is an absolute path
+    if (!path.isAbsolute(conversationsPath)) {
+      throw new Error('conversationsPath is not an absolute path. use path.resolve("your/path/here") to create conversationsPath');
+    }
+
 
     // if there are no conversation files, throw an error.
-    if (fs.readdirSync(normalizedPath).length === 0) {
-      throw Error('conversationsPath does not contain any conversation files.');
+    if (fs.readdirSync(conversationsPath).length === 0) {
+      throw new Error('conversationsPath does not contain any conversation files.');
     }
 
     // collect all files in the conversations folder and add whatever they
     // export to the conversations object
-    fs.readdirSync(normalizedPath).forEach((file) => {
+    fs.readdirSync(conversationsPath).forEach((file) => {
       // eslint-disable-next-line global-require, import/no-dynamic-require
       conversations[jsFilenameToCamelCase(file)] = require(`${conversationsPath}/${file}`);
     });
