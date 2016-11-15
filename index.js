@@ -115,6 +115,11 @@ const path = require('path'),
           response,
           returnVal;
 
+        // check that we have a message
+        if (message === undefined || message === '') {
+          throw new Error('Message cannot be empty or undefined');
+        }
+
         // give bot access to helper properties and methods
         this.helpers = (helpers || {});
         this.helpers.validateResponse = (this.helpers.validateResponse || this.validateResponse);
