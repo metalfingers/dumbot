@@ -44,6 +44,13 @@ describe('dumbot#handleMessage', () => {
     expect(() => dumbot.handleMessage({ user: mockUser, message: '' }))
       .to.throw(Error, /Message cannot be empty or undefined/);
   });
+
+  describe('intent routing:', () => {
+    // these tests test the intent match terms  in intents.js
+    it('should route to the correct intent when match term is a string', () => {
+      expect(dumbot.handleMessage({ user: mockUser, message: 'hi' }).response)
+        .to.equal('hi there.');
+    });
 });
 
 
