@@ -105,9 +105,16 @@ const path = require('path'),
         intentName = user.session.conversations[user.session.conversations.length - 1];
       } else {
         Object.keys(intents).forEach((intent) => {
-          if (intents[intent].indexOf(message) !== -1) {
-            intentName = intent;
-          }
+          intents[intent].forEach((intentMatch) => {
+            // go back if we've already found a match for intentName
+            if (intentName !== undefined) {
+              return;
+            }
+            if (intents[intent].indexOf(message) !== -1 ||
+              (intentMatch instanceof RegExp && message.match(intentMatch))) {
+              intentName = intent;
+            }
+          });
         });
       }
       return (intentName || 'que');

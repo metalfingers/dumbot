@@ -51,6 +51,12 @@ describe('dumbot#handleMessage', () => {
       expect(dumbot.handleMessage({ user: mockUser, message: 'hi' }).response)
         .to.equal('hi there.');
     });
+
+    it('should route to the correct intent when match term is a regular expression', () => {
+      expect(dumbot.handleMessage({ user: mockUser, message: 'hey friend' }).response)
+        .to.equal('hi there.');
+    });
+  });
 });
 
 

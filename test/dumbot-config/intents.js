@@ -2,7 +2,7 @@ const intents = {
   greeting: [
     'hi',
     'hello',
-    'hey there',
+    /hey/,
   ],
   getStarted: [
     'get_started',
