@@ -56,6 +56,11 @@ describe('dumbot#handleMessage', () => {
       expect(dumbot.handleMessage({ user: mockUser, message: 'hey friend' }).response)
         .to.equal('hi there.');
     });
+
+    it('should route to a default intent when there is no match', () => {
+      expect(dumbot.handleMessage({ user: mockUser, message: 'junk junk junk' }).response)
+        .to.equal('Sorry, I don’t understand that.');
+    });
   });
 });
 
